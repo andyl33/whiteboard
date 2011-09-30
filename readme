@@ -1,0 +1,20 @@
+/******** Installation ************************************************************************************************/
+
+To get this working you will need to put your Trac user name and password into the ApplicationConfig class.
+
+The XmlRpcTemplateTest will also fail because of this!
+
+/******** Outstanding tasks *******************************************************************************************/
+
+1. Record user changes to the status of tickets and save these back to Trac
+2. Add user selectable milestones (dropdown in UI)
+3. Look at caching the results from the Trac XML-RPC calls to improve speed. Might be worth polling for changes?
+4. Add a ticket details view (at the very least the links at the top of each ticket should link to Trac)
+5. Add the ability to create/delete a new ticket and save this in Trac
+6. Login & security
+7. Add Avatar pictures for each user  (UI for maintaining?)
+8. Error reporting
+9. User configurable columns and styles
+10. Kanban style work in progress limits for each column
+
+Test coverage needs to be improved drastically!
