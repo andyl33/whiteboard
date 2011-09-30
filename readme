@@ -1,10 +1,10 @@
-/******** Installation ************************************************************************************************/
+/******** Installation **************************************************************************************/
 
 To get this working you will need to put your Trac user name and password into the ApplicationConfig class.
 
 The XmlRpcTemplateTest will also fail because of this!
 
-/******** Outstanding tasks *******************************************************************************************/
+/******** Outstanding tasks *********************************************************************************/
 
 1. Record user changes to the status of tickets and save these back to Trac
 2. Add user selectable milestones (dropdown in UI)
