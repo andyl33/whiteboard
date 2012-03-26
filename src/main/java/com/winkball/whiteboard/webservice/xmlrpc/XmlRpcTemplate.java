@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -61,7 +62,8 @@ public class XmlRpcTemplate implements XmlRpcSupport {
 
         if (result.size() > 1) {
             throw new RemoteProcedureCallException("More than one result found for call "
-                    + remoteProcedureCall.getMethodName() + " with params " + remoteProcedureCall.getParameters());
+                    + remoteProcedureCall.getMethodName() + " with params " +
+                    Arrays.toString(remoteProcedureCall.getParameters()));
         }
 
         return result.get(0);

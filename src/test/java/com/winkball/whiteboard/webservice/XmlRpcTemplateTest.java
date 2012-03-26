@@ -1,7 +1,7 @@
 package com.winkball.whiteboard.webservice;
 
-import com.winkball.whiteboard.data.TicketDAO;
-import com.winkball.whiteboard.data.trac.TracTicketDAO;
+import com.winkball.whiteboard.data.TicketRepository;
+import com.winkball.whiteboard.data.trac.TracTicketRepository;
 import com.winkball.whiteboard.domain.Milestone;
 import com.winkball.whiteboard.webservice.xmlrpc.security.SslInitializer;
 import com.winkball.whiteboard.webservice.xmlrpc.XmlRpcTemplate;
@@ -38,7 +38,7 @@ public class XmlRpcTemplateTest {
 
     @Test
     public void testStuff() throws Exception {
-        TicketDAO repository = new TracTicketDAO(template);
+        TicketRepository repository = new TracTicketRepository(template);
         List result = repository.find(new Milestone("WinkBall 1.8.0"));
         Assert.assertNotNull(result);
     }

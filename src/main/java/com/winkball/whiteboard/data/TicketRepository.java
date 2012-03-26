@@ -5,7 +5,7 @@ import com.winkball.whiteboard.domain.Ticket;
 
 import java.util.List;
 
-public interface TicketDAO {
+public interface TicketRepository {
 
    Ticket find(int id);
 

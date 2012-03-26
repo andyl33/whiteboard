@@ -4,7 +4,7 @@ import com.winkball.whiteboard.domain.Milestone;
 
 import java.util.List;
 
-public interface MilestoneDAO {
+public interface MilestoneRepository {
 
     List<Milestone> findAll();
 

@@ -1,13 +1,15 @@
 package com.winkball.whiteboard.config;
 
+import java.net.URL;
+
 import org.apache.xmlrpc.client.XmlRpcClient;
 import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 import org.springframework.web.servlet.view.velocity.VelocityConfigurer;
 import org.springframework.web.servlet.view.velocity.VelocityViewResolver;
-
-import java.net.URL;
 
 /**
  * Application Context Configuration.
@@ -27,18 +29,18 @@ public class ApplicationConfig {
     }
 
     @Bean
-    public VelocityConfigurer velocityConfigurer() {
-        VelocityConfigurer configurer = new VelocityConfigurer();
-        configurer.setResourceLoaderPath("/WEB-INF/views/velocity/");
+    public FreeMarkerConfigurer freeMarkerConfigurer() {
+        FreeMarkerConfigurer configurer = new FreeMarkerConfigurer();
+        configurer.setTemplateLoaderPath("/WEB-INF/views/freemarker/");
         return configurer;
     }
 
     @Bean
-    public VelocityViewResolver velocityViewResolver() {
-        VelocityViewResolver resolver = new VelocityViewResolver();
+    public FreeMarkerViewResolver freeMarkerViewResolver() {
+        FreeMarkerViewResolver resolver = new FreeMarkerViewResolver();
         resolver.setCache(false);
         resolver.setPrefix("");
-        resolver.setSuffix(".vm");
+        resolver.setSuffix(".ftl");
         resolver.setExposeSpringMacroHelpers(true);
         return resolver;
     }
