@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**
- * 
+ * TODO Allow flexible creation and storage of this configuration so fields from the backend system can be mapped to columns.
  */
 public class ColumnConfig {
     
