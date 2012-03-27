@@ -21,8 +21,8 @@ public class ApplicationConfig {
     public XmlRpcClient xmlRpcClient() throws Exception {
         XmlRpcClientConfigImpl config = new XmlRpcClientConfigImpl();
         config.setServerURL(new URL("https://trac.winkball.com:555/login/xmlrpc"));
-        config.setBasicPassword("");
-        config.setBasicUserName("");
+        config.setBasicPassword("test");
+        config.setBasicUserName("test");
         XmlRpcClient client = new XmlRpcClient();
         client.setConfig(config);
         return client;
