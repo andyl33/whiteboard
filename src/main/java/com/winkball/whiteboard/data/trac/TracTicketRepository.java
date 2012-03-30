@@ -3,9 +3,7 @@ package com.winkball.whiteboard.data.trac;
 import com.winkball.whiteboard.data.TicketRepository;
 import com.winkball.whiteboard.domain.Milestone;
 import com.winkball.whiteboard.domain.Ticket;
-import com.winkball.whiteboard.webservice.xmlrpc.calls.trac.GetTicket;
-import com.winkball.whiteboard.webservice.xmlrpc.calls.trac.GetTickets;
-import com.winkball.whiteboard.webservice.xmlrpc.calls.trac.QueryForTicketIds;
+import com.winkball.whiteboard.webservice.xmlrpc.calls.trac.*;
 import com.winkball.whiteboard.webservice.xmlrpc.RemoteProcedureCallException;
 import com.winkball.whiteboard.webservice.xmlrpc.XmlRpcTemplate;
 import org.slf4j.Logger;
@@ -15,8 +13,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.CollectionUtils;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Implementation of the {@link com.winkball.whiteboard.data.TicketRepository} which retrieves Ticket information
@@ -56,11 +53,22 @@ public class TracTicketRepository implements TicketRepository {
         return ticketsByMilestone;
     }
 
-    public void store(Ticket ticket) {
+    public void create(Ticket ticket) {
 
     }
 
-    public void store(List<Ticket> tickets) {
-
+    @Override
+    public Ticket update(Ticket ticket, String comment, String author) {
+        
+        Object actions = xmlRpcTemplate.callForObject(new GetActionsForTicket(ticket.getId()));
+        
+        
+        Map<String, Object> changes = new HashMap<String, Object> ();
+        changes.put("status", ticket.getStatus());
+        changes.put("action", "fuck it");
+        changes.put("_ts", new Date());
+        UpdateTicket updateTicketCall = new UpdateTicket(ticket.getId(), comment, changes, author);
+        //Object obj = xmlRpcTemplate.callForObject()
+        return null;
     }
 }

@@ -11,8 +11,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <spring.version>3.0.5.RELEASE</spring.version>
-        <spring.security.version>3.0.5.RELEASE</spring.security.version>
+        <spring.version>3.1.1.RELEASE</spring.version>
+        <spring.security.version>3.1.0.RELEASE</spring.security.version>
         <spring.ws.version>2.0.0-M1</spring.ws.version>
         <spring.remoting.version>2.0.8</spring.remoting.version>
         <spring.webflow.version>2.0.8.RELEASE</spring.webflow.version>

@@ -39,7 +39,7 @@ public class MockTicketRepository implements TicketRepository {
         return tickets;
     }
 
-    public void store(Ticket ticket) {
+    public void create(Ticket ticket) {
         
         if (ticket.getId() == null) {
             // New ticket
@@ -56,9 +56,14 @@ public class MockTicketRepository implements TicketRepository {
         }
     }
 
-    public void store(List<Ticket> tickets) {
+    public void create(List<Ticket> tickets) {
         for (Ticket ticket: tickets) {
-            store(ticket);
+            create(ticket);
         }
+    }
+
+    @Override
+    public Ticket update(Ticket ticket, String comment, String author) {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }

@@ -9,10 +9,18 @@ function initBoard() {
         connectWith: '.column_tickets',
         placeholder: 'ticket_placeholder',
         forcePlaceholderSize: true,
-        items: 'li:not(.column_header)'
+        items: 'li:not(.column_header)',
+        receive: function(event, ui) {
+            $.post('/whiteboard/whiteboard/update', { newColumn: $(this).attr("id") },
+                function(data) {
+                    alert(data);
+                }
+            );
+        }
     });
 
     $('.board_ticket .info').hide();
+
     $('.board_ticket .details').click(function(e) {
         e.preventDefault();
         $(this).text($(this).text() == 'More' ? 'Less' : 'More');

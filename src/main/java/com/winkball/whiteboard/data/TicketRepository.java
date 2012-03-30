@@ -11,7 +11,7 @@ public interface TicketRepository {
 
    List<Ticket> find(Milestone milestone);
 
-   void store(Ticket ticket);
+   void create(Ticket ticket);
 
-   void store(List<Ticket> tickets);
+   Ticket update(Ticket ticket, String comment, String author);
 }

@@ -4,8 +4,6 @@ import java.util.*;
 
 import com.winkball.whiteboard.controller.filter.ColumnFilter;
 import com.winkball.whiteboard.data.TicketRepository;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.Predicate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -19,10 +17,13 @@ import com.winkball.whiteboard.data.MilestoneRepository;
 import com.winkball.whiteboard.domain.Milestone;
 import com.winkball.whiteboard.domain.Ticket;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * Main Controller for generating the board contents and handling updates.
  */
 @Controller
+@RequestMapping (value="/whiteboard")
 public class BoardController {
 
     @Autowired
@@ -33,7 +34,10 @@ public class BoardController {
     @Qualifier("TracTicketRepository")
     private TicketRepository ticketRepository;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/whiteboard")
+    @Autowired
+    private ColumnFilter columnFilter;
+
+    @RequestMapping(method = RequestMethod.GET)
     public ModelAndView get() {
         // TODO - remember the selected milestone, cookie?, localstorage?
 
@@ -58,11 +62,18 @@ public class BoardController {
         List<Ticket> allTickets = ticketRepository.find(new Milestone(milestone));
 
         ModelAndView mav = new ModelAndView("board");
-        mav.addAllObjects(new ColumnFilter().filter(allTickets));
+        mav.addAllObjects(columnFilter.filter(allTickets));
 
         mav.addObject("gravatarEnabled", false);
 
         return mav;
+    }
+
+    @RequestMapping(value="/update", produces = {"application/json"})
+    @ResponseBody
+    public String update(@RequestParam(value="newColumn") String column) {
+        System.out.println(column);
+        return "success";
     }
 
 }
