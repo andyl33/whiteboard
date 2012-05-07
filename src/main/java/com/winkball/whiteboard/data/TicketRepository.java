@@ -14,4 +14,5 @@ public interface TicketRepository {
    void create(Ticket ticket);
 
    Ticket update(Ticket ticket, String comment, String author);
+
 }

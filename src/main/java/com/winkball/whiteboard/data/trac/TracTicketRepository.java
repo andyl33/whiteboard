@@ -1,6 +1,7 @@
 package com.winkball.whiteboard.data.trac;
 
 import com.winkball.whiteboard.data.TicketRepository;
+import com.winkball.whiteboard.domain.Action;
 import com.winkball.whiteboard.domain.Milestone;
 import com.winkball.whiteboard.domain.Ticket;
 import com.winkball.whiteboard.webservice.xmlrpc.calls.trac.*;
@@ -32,7 +33,12 @@ public class TracTicketRepository implements TicketRepository {
     }
 
     public Ticket find(int id) {
-        return null;
+        Ticket ticket = xmlRpcTemplate.callForObject(new GetTicket(id));
+        if (ticket == null) {
+            throw new TicketNotFoundException("Ticket with Id " + id + " does not exist in Trac");
+        }
+        ticket.setId(id); // we have to set the id here as Trac does not return it.
+        return ticket;
     }
 
     public List<Ticket> find(Milestone milestone) {
@@ -57,18 +63,20 @@ public class TracTicketRepository implements TicketRepository {
 
     }
 
-    @Override
     public Ticket update(Ticket ticket, String comment, String author) {
         
-        Object actions = xmlRpcTemplate.callForObject(new GetActionsForTicket(ticket.getId()));
-        
-        
+        List<Action> actions = xmlRpcTemplate.callForList(new GetActionsForTicket(ticket.getId()));
+
         Map<String, Object> changes = new HashMap<String, Object> ();
         changes.put("status", ticket.getStatus());
-        changes.put("action", "fuck it");
-        changes.put("_ts", new Date());
+        changes.put("action", ticket.getAction());
+        changes.put("_ts", ticket.getVersion()); // A token used to determine if the ticket is updated while we do this
+        changes.put("owner", ticket.getOwner());
+
         UpdateTicket updateTicketCall = new UpdateTicket(ticket.getId(), comment, changes, author);
-        //Object obj = xmlRpcTemplate.callForObject()
-        return null;
+
+        return xmlRpcTemplate.callForObject(updateTicketCall);
+
     }
+
 }

@@ -1,133 +1,33 @@
 <#import "/spring.ftl" as spring/>
 <div id="board">
-    <ul id="todo" class="column_tickets">
-        <li class="column_header">To do <a href="#" class="expand" title="Expand all">+</a></li>
-    <#list todo as ticket>
-        <li id="board_ticket_{$ticket.id}" class="board_ticket ${ticket.priority}">
-            <h3><a href="#">#${ticket.id}: ${ticket.summary}</a></h3>
-            <div>
-                <div class="info">
-                    <#if gravatarEnabled == true>
-                        <img src="http://www.gravatar.com/avatar/?s=50" alt="" />
-                    </#if>
-                    <dl>
-                        <dt>Status</dt>
-                        <dd>${ticket.status}</dd>
-                        <dt>Type</dt>
-                        <dd>${ticket.type}</dd>
-                        <dt>Priority</dt>
-                        <dd>${ticket.priority}</dd>
-                        <dt>Owner</dt>
-                        <dd>${ticket.owner}</dd>
-                    </dl>
+<#list columns?keys as key>
+    <ul id="${key}" class="column_tickets">
+        <li class="column_header">${key} <a href="#" class="expand" title="Expand all">+</a></li>
+        <#list columns[key].tickets as ticket>
+            <li id="board_ticket_${ticket.id?string("0")}" class="board_ticket ${ticket.priority}">
+                <h3><a href="#">#${ticket.id?string("0")}: ${ticket.summary}</a></h3>
+                <div>
+                    <div class="info">
+                        <div class="ticket_number" style="display:none">${ticket.id?string("0")}</div>
+                        <div class="ticket_milestone" style="display:none">${ticket.milestone?string("0")}</div>
+                        <#if gravatarEnabled == true>
+                            <img src="http://www.gravatar.com/avatar/?s=50" alt="" />
+                        </#if>
+                        <dl>
+                            <dt>Status</dt>
+                            <dd class="ticket_status">${ticket.status}</dd>
+                            <dt>Type</dt>
+                            <dd class="ticket_type" >${ticket.type}</dd>
+                            <dt>Priority</dt>
+                            <dd class="ticket_priority" >${ticket.priority}</dd>
+                            <dt>Owner</dt>
+                            <dd class="ticket_owner">${ticket.owner}</dd>
+                        </dl>
+                    </div>
+                    <a href="#" class="details">More</a>
                 </div>
-                <a href="#" class="details">More</a>
-            </div>
-        </li>
-    </#list>
+            </li>
+        </#list>
     </ul>
-    <ul id="inprogress" class="column_tickets">
-        <li class="column_header">In progress <a href="#" class="expand" title="Expand all">+</a></li>
-    <#list inprogress as ticket>
-        <li id="board_ticket_${ticket.id}" class="board_ticket ${ticket.priority}">
-            <h3><a href="">#${ticket.id}: ${ticket.summary}</a></h3>
-            <div>
-                <div class="info">
-                    <#if gravatarEnabled == true>
-                        <img src="http://www.gravatar.com/avatar/?s=50" alt="" />
-                    </#if>
-                    <dl>
-                        <dt>Status</dt>
-                        <dd>${ticket.status}</dd>
-                        <dt>Type</dt>
-                        <dd>${ticket.type}</dd>
-                        <dt>Priority</dt>
-                        <dd>${ticket.priority}</dd>
-                        <dt>Owner</dt>
-                        <dd>${ticket.owner}</dd>
-                    </dl>
-                </div>
-                <a href="#" class="details">More</a>
-            </div>
-        </li>
-    </#list>
-    </ul>
-    <ul id="reviewing" class="column_tickets">
-        <li class="column_header">In review <a href="#" class="expand" title="Expand all">+</a></li>
-    <#list review as ticket>
-        <li id="board_ticket_${ticket.id}" class="board_ticket ${ticket.priority}">
-            <h3><a href="">#${ticket.id}: ${ticket.summary}</a></h3>
-            <div>
-                <div class="info">
-                    <#if gravatarEnabled == true>
-                        <img src="http://www.gravatar.com/avatar/?s=50" alt="" />
-                    </#if>
-                    <dl>
-                        <dt>Status</dt>
-                        <dd>${ticket.status}</dd>
-                        <dt>Type</dt>
-                        <dd>${ticket.type}</dd>
-                        <dt>Priority</dt>
-                        <dd>${ticket.priority}</dd>
-                        <dt>Owner</dt>
-                        <dd>${ticket.owner}</dd>
-                    </dl>
-                </div>
-                <a href="#" class="details">More</a>
-            </div>
-        </li>
-    </#list>
-    </ul>
-    <ul id="testing" class="column_tickets">
-        <li class="column_header">Testing <a href="#" class="expand" title="Expand all">+</a></li>
-    <#list testing as ticket>
-        <li id="board_ticket_${ticket.id}" class="board_ticket ${ticket.priority}">
-            <h3><a href="">#${ticket.id}: ${ticket.summary}</a></h3>
-            <div>
-                <div class="info">
-                    <#if gravatarEnabled == true>
-                        <img src="http://www.gravatar.com/avatar/?s=50" alt="" />
-                    </#if>
-                    <dl>
-                        <dt>Status</dt>
-                        <dd>${ticket.status}</dd>
-                        <dt>Type</dt>
-                        <dd>${ticket.type}</dd>
-                        <dt>Priority</dt>
-                        <dd>${ticket.priority}</dd>
-                        <dt>Owner</dt>
-                        <dd>${ticket.owner}</dd>
-                    </dl>
-                </div>
-                <a href="#" class="details">More</a>
-            </div>
-        </li>
-    </#list>
-    </ul>
-    <ul id="done" class="column_tickets">
-        <li class="column_header">Done <a href="#" class="expand" title="Expand all">+</a></li>
-    <#list done as ticket>
-        <li id="board_ticket_${ticket.id}" class="board_ticket ${ticket.priority}">
-            <h3><a href="">#${ticket.id}: ${ticket.summary}</a></h3>
-            <div>
-                <div class="info">
-                    <#if gravatarEnabled == true>
-                        <img src="http://www.gravatar.com/avatar/?s=50" alt="" />
-                    </#if>
-                    <dl>
-                        <dt>Status</dt>
-                        <dd>${ticket.status}</dd>
-                        <dt>Type</dt>
-                        <dd>${ticket.type}</dd>
-                        <dt>Priority</dt>
-                        <dd>${ticket.priority}</dd>
-                        <dt>Owner</dt>
-                        <dd>${ticket.owner}</dd>
-                    </dl>
-                </div>
-                <a href="#" class="details">More</a>
-            </div>
-        </li>
-    </#list>
-    </ul>
+</#list>
 </div>

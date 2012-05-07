@@ -21,9 +21,10 @@ public class TicketTransformer implements ResultTransformer<Ticket> {
             ticket.setMilestone((String)source.get("milestone"));
             ticket.setOwner((String)source.get("owner"));
             ticket.setPriority((String)source.get("priority"));
-            ticket.setStatus((String)source.get("status"));
             ticket.setSummary((String)source.get("summary"));
             ticket.setType((String)source.get("type"));
+            ticket.setStatus((String)source.get("status"));
+            ticket.setVersion((String)source.get("_ts"));
         }
         return ticket;
     }

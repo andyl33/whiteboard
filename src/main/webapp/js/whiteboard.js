@@ -11,7 +11,15 @@ function initBoard() {
         forcePlaceholderSize: true,
         items: 'li:not(.column_header)',
         receive: function(event, ui) {
-            $.post('/whiteboard/whiteboard/update', { newColumn: $(this).attr("id") },
+            $.post('/whiteboard/whiteboard/update', {
+                    origin: $(ui.sender).attr("id"),
+                    destination: $(this).attr("id"),
+                    ticket_number: $(ui.item).find(".ticket_number").text(),
+                    ticket_status: $(ui.item).find(".ticket_status").text(),
+                    ticket_type: $(ui.item).find(".ticket_type").text(),
+                    ticket_priority: $(ui.item).find(".ticket_priority").text(),
+                    ticket_owner: $(ui.item).find(".ticket_owner").text(),
+                    ticket_milestone: $(ui.item).find(".ticket_milestone").text()},
                 function(data) {
                     alert(data);
                 }

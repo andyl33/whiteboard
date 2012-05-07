@@ -1,4 +1,4 @@
-package com.winkball.whiteboard.controller.filter.predicate;
+package com.winkball.whiteboard.domain.predicate;
 
 import com.winkball.whiteboard.domain.Ticket;
 import org.apache.commons.collections.Predicate;

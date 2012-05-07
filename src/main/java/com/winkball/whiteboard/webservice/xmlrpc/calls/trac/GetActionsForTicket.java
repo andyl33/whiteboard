@@ -1,12 +1,14 @@
 package com.winkball.whiteboard.webservice.xmlrpc.calls.trac;
 
+import com.winkball.whiteboard.domain.Action;
 import com.winkball.whiteboard.webservice.xmlrpc.calls.RemoteProcedureCall;
 import com.winkball.whiteboard.webservice.xmlrpc.transform.ResultTransformer;
+import com.winkball.whiteboard.webservice.xmlrpc.transform.trac.ActionTransformer;
 
 /**
  * 
  */
-public class GetActionsForTicket implements RemoteProcedureCall<Object> {
+public class GetActionsForTicket implements RemoteProcedureCall<Action> {
     
     private Object[] params;
 
@@ -14,18 +16,16 @@ public class GetActionsForTicket implements RemoteProcedureCall<Object> {
         params = new Object[] {id};
     }
     
-    @Override
+
     public String getMethodName() {
         return "ticket.getActions";
     }
 
-    @Override
     public Object[] getParameters() {
         return params;
     }
 
-    @Override
-    public ResultTransformer<Object> getResultTransformer() {
-        return null;
+    public ResultTransformer<Action> getResultTransformer() {
+        return new ActionTransformer();
     }
 }

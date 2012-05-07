@@ -2,22 +2,18 @@ package com.winkball.whiteboard.controller;
 
 import java.util.*;
 
-import com.winkball.whiteboard.controller.filter.ColumnFilter;
 import com.winkball.whiteboard.data.TicketRepository;
+import com.winkball.whiteboard.domain.*;
+import com.winkball.whiteboard.domain.configuration.BoardConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.winkball.whiteboard.data.MilestoneRepository;
-import com.winkball.whiteboard.domain.Milestone;
-import com.winkball.whiteboard.domain.Ticket;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * Main Controller for generating the board contents and handling updates.
@@ -35,7 +31,7 @@ public class BoardController {
     private TicketRepository ticketRepository;
 
     @Autowired
-    private ColumnFilter columnFilter;
+    private BoardConfiguration boardConfiguration;
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView get() {
@@ -57,12 +53,21 @@ public class BoardController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView selectMilestone(@RequestParam(value="selectedMilestone", required=true) String milestone) {
+    public ModelAndView selectMilestone(@RequestParam(value="selectedMilestone", required=true) String milestone, WebRequest request) {
+        // TODO check board exists in session map first?
+        TicketBoard ticketBoard = new TracTicketBoard(boardConfiguration, ticketRepository); // TODO auto inject dependencies
+        ticketBoard.initialise(new Milestone(milestone));
 
-        List<Ticket> allTickets = ticketRepository.find(new Milestone(milestone));
+        @SuppressWarnings("unchecked")
+        Map<Milestone, TicketBoard> boards = (Map<Milestone, TicketBoard>) request.getAttribute("boards", RequestAttributes.SCOPE_SESSION);
+        if (boards == null) {
+            boards = new HashMap<Milestone, TicketBoard>();
+        }
+        boards.put(new Milestone(milestone), ticketBoard); // TODO replace board if key exists?
+        request.setAttribute("boards", boards, RequestAttributes.SCOPE_SESSION);
 
         ModelAndView mav = new ModelAndView("board");
-        mav.addAllObjects(columnFilter.filter(allTickets));
+        mav.addObject("columns", ticketBoard.getColumns()); // TODO change board.ftl to generate columns markup on the fly
 
         mav.addObject("gravatarEnabled", false);
 
@@ -71,8 +76,40 @@ public class BoardController {
 
     @RequestMapping(value="/update", produces = {"application/json"})
     @ResponseBody
-    public String update(@RequestParam(value="newColumn") String column) {
-        System.out.println(column);
+    public String update(@RequestParam(value="destination") String destination,
+                         @RequestParam(value="origin") String origin,
+                         @RequestParam(value="ticket_number") Integer number,
+                         @RequestParam(value="ticket_owner") String owner,
+                         @RequestParam(value="ticket_milestone") String milestone) {
+
+        // TODO perform validation on inputs
+
+        // TODO Prompt for user when moving to review/inprogress
+        // TODO Prompt for release version when moving to testing
+
+        // Load a fresh copy of the ticket to ensure we don't collide with other updates.
+        Ticket ticketToUpdate = ticketRepository.find(number);
+
+        // TODO Transition as request param - jackson
+        Transition requestedTransition = new Transition(origin, destination);
+
+
+        // TODO users for each transition type (backlog, release_pool), resolution(fixed)?
+
+        ticketToUpdate.apply(requestedTransition);
+
+        // TODO sort out comment generation + owner/author
+        ticketRepository.update(ticketToUpdate,
+                ticketToUpdate.getType() + " #" + ticketToUpdate.getId() + " " + ticketToUpdate.getAction() + " by " + owner, owner );
+
+        // if "to do" set ticket status = new, owner = backlog
+        // if "inprogress" set ticket status = assigned, owner = logged in user
+        // if "reviewing" display list of possible reviewers
+        //     -- select reviewer
+        //     -- change owner to reviewer, ticket status = reviewing
+        // if "testing" set ticket status = testing, owner = release pool
+        //     -- prompt for released in version
+
         return "success";
     }
 
