@@ -1,4 +1,4 @@
-package com.winkball.whiteboard.domain;
+package io.andylee.whiteboard.domain;
 
 /**
  *

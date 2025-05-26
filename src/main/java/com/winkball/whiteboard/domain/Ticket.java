@@ -1,4 +1,4 @@
-package com.winkball.whiteboard.domain;
+package io.andylee.whiteboard.domain;
 
 import org.apache.commons.lang.Validate;
 
@@ -48,7 +48,7 @@ public class Ticket {
 
     private String type;
 
-    private String milestone;    // TODO switch to com.winkball.whiteboard.domain.Milestone
+    private String milestone;    // TODO switch to io.andylee.whiteboard.domain.Milestone
 
     private String summary;
 

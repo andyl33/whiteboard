@@ -1,16 +1,15 @@
-package com.winkball.whiteboard.config;
+package io.andylee.whiteboard.config;
 
 import java.net.URL;
 
-import com.winkball.whiteboard.domain.configuration.BoardConfiguration;
-import com.winkball.whiteboard.domain.configuration.TracBoardConfiguration;
-import com.winkball.whiteboard.domain.configuration.TracColumnConfiguration;
+import io.andylee.whiteboard.domain.configuration.BoardConfiguration;
+import io.andylee.whiteboard.domain.configuration.TracBoardConfiguration;
+import io.andylee.whiteboard.domain.configuration.TracColumnConfiguration;
 import org.apache.xmlrpc.client.XmlRpcClient;
 import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
-import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
+
 
 /**
  * Application Context Configuration.
@@ -94,21 +93,6 @@ public class ApplicationConfig {
         return client;
     }
 
-    @Bean
-    public FreeMarkerConfigurer freeMarkerConfigurer() {
-        FreeMarkerConfigurer configurer = new FreeMarkerConfigurer();
-        configurer.setTemplateLoaderPath("/WEB-INF/views/freemarker/");
-        return configurer;
-    }
 
-    @Bean
-    public FreeMarkerViewResolver freeMarkerViewResolver() {
-        FreeMarkerViewResolver resolver = new FreeMarkerViewResolver();
-        resolver.setCache(false);
-        resolver.setPrefix("");
-        resolver.setSuffix(".ftl");
-        resolver.setExposeSpringMacroHelpers(true);
-        return resolver;
-    }
 
 }

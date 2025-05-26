@@ -1,6 +1,6 @@
-package com.winkball.whiteboard.domain.predicate;
+package io.andylee.whiteboard.domain.predicate;
 
-import com.winkball.whiteboard.domain.Ticket;
+import io.andylee.whiteboard.domain.Ticket;
 import org.apache.commons.collections.Predicate;
 import org.apache.commons.lang.Validate;
 

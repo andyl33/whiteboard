@@ -1,9 +1,9 @@
-package com.winkball.whiteboard.webservice.xmlrpc.calls.trac;
+package io.andylee.whiteboard.webservice.xmlrpc.calls.trac;
 
-import com.winkball.whiteboard.domain.Milestone;
-import com.winkball.whiteboard.webservice.xmlrpc.calls.RemoteProcedureCall;
-import com.winkball.whiteboard.webservice.xmlrpc.transform.trac.MilestoneTransformer;
-import com.winkball.whiteboard.webservice.xmlrpc.transform.ResultTransformer;
+import io.andylee.whiteboard.domain.Milestone;
+import io.andylee.whiteboard.webservice.xmlrpc.calls.RemoteProcedureCall;
+import io.andylee.whiteboard.webservice.xmlrpc.transform.trac.MilestoneTransformer;
+import io.andylee.whiteboard.webservice.xmlrpc.transform.ResultTransformer;
 
 /**
  *

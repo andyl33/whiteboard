@@ -1,8 +1,8 @@
-package com.winkball.whiteboard.data.mock;
+package io.andylee.whiteboard.data.mock;
 
-import com.winkball.whiteboard.data.TicketRepository;
-import com.winkball.whiteboard.domain.Milestone;
-import com.winkball.whiteboard.domain.Ticket;
+import io.andylee.whiteboard.data.TicketRepository;
+import io.andylee.whiteboard.domain.Milestone;
+import io.andylee.whiteboard.domain.Ticket;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

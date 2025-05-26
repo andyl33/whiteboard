@@ -1,7 +1,7 @@
-package com.winkball.whiteboard.domain.configuration;
+package io.andylee.whiteboard.domain.configuration;
 
-import com.winkball.whiteboard.domain.Action;
-import com.winkball.whiteboard.domain.State;
+import io.andylee.whiteboard.domain.Action;
+import io.andylee.whiteboard.domain.State;
 import org.apache.commons.collections.Predicate;
 
 import java.util.List;

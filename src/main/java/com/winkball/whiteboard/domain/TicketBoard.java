@@ -1,7 +1,7 @@
-package com.winkball.whiteboard.domain;
+package io.andylee.whiteboard.domain;
 
 
-import com.winkball.whiteboard.domain.configuration.TicketConfiguration;
+import io.andylee.whiteboard.domain.configuration.TicketConfiguration;
 
 import java.util.Map;
 import java.util.Set;

@@ -1,10 +1,10 @@
-package com.winkball.whiteboard.domain.configuration;
+package io.andylee.whiteboard.domain.configuration;
 
-import com.winkball.whiteboard.domain.Action;
-import com.winkball.whiteboard.domain.State;
-import com.winkball.whiteboard.domain.predicate.TicketOwnerPredicate;
-import com.winkball.whiteboard.domain.predicate.TicketStatusPredicate;
-import com.winkball.whiteboard.domain.predicate.TracPredicateFactory;
+import io.andylee.whiteboard.domain.Action;
+import io.andylee.whiteboard.domain.State;
+import io.andylee.whiteboard.domain.predicate.TicketOwnerPredicate;
+import io.andylee.whiteboard.domain.predicate.TicketStatusPredicate;
+import io.andylee.whiteboard.domain.predicate.TracPredicateFactory;
 import org.apache.commons.collections.Predicate;
 import org.apache.commons.collections.PredicateUtils;
 import org.apache.commons.lang.ArrayUtils;

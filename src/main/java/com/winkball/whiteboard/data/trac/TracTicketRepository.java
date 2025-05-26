@@ -1,12 +1,12 @@
-package com.winkball.whiteboard.data.trac;
+package io.andylee.whiteboard.data.trac;
 
-import com.winkball.whiteboard.data.TicketRepository;
-import com.winkball.whiteboard.domain.Action;
-import com.winkball.whiteboard.domain.Milestone;
-import com.winkball.whiteboard.domain.Ticket;
-import com.winkball.whiteboard.webservice.xmlrpc.calls.trac.*;
-import com.winkball.whiteboard.webservice.xmlrpc.RemoteProcedureCallException;
-import com.winkball.whiteboard.webservice.xmlrpc.XmlRpcTemplate;
+import io.andylee.whiteboard.data.TicketRepository;
+import io.andylee.whiteboard.domain.Action;
+import io.andylee.whiteboard.domain.Milestone;
+import io.andylee.whiteboard.domain.Ticket;
+import io.andylee.whiteboard.webservice.xmlrpc.calls.trac.*;
+import io.andylee.whiteboard.webservice.xmlrpc.RemoteProcedureCallException;
+import io.andylee.whiteboard.webservice.xmlrpc.XmlRpcTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import org.springframework.util.CollectionUtils;
 import java.util.*;
 
 /**
- * Implementation of the {@link com.winkball.whiteboard.data.TicketRepository} which retrieves Ticket information
+ * Implementation of the {@link io.andylee.whiteboard.data.TicketRepository} which retrieves Ticket information
  * from a remote Trac installation using XML-RPC
  */
 @Repository(value="TracTicketRepository")

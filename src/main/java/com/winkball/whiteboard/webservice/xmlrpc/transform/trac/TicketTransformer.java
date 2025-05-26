@@ -1,7 +1,7 @@
-package com.winkball.whiteboard.webservice.xmlrpc.transform.trac;
+package io.andylee.whiteboard.webservice.xmlrpc.transform.trac;
 
-import com.winkball.whiteboard.domain.Ticket;
-import com.winkball.whiteboard.webservice.xmlrpc.transform.ResultTransformer;
+import io.andylee.whiteboard.domain.Ticket;
+import io.andylee.whiteboard.webservice.xmlrpc.transform.ResultTransformer;
 
 import java.util.Map;
 
@@ -9,7 +9,7 @@ import java.util.Map;
  * Transforms an Object returned by an XML remote procedure call into a {@link Ticket}.
  *
  * @see {@link org.apache.xmlrpc.client.XmlRpcClient}
- * @see {@link com.winkball.whiteboard.webservice.xmlrpc.XmlRpcTemplate}
+ * @see {@link io.andylee.whiteboard.webservice.xmlrpc.XmlRpcTemplate}
  */
 public class TicketTransformer implements ResultTransformer<Ticket> {
 

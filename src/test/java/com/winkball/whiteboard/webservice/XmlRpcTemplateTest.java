@@ -1,11 +1,11 @@
-package com.winkball.whiteboard.webservice;
+package io.andylee.whiteboard.webservice;
 
-import com.winkball.whiteboard.data.TicketRepository;
-import com.winkball.whiteboard.data.trac.TracTicketRepository;
-import com.winkball.whiteboard.domain.Milestone;
-import com.winkball.whiteboard.webservice.xmlrpc.security.SslInitializer;
-import com.winkball.whiteboard.webservice.xmlrpc.XmlRpcTemplate;
-import junit.framework.Assert;
+import io.andylee.whiteboard.data.TicketRepository;
+import io.andylee.whiteboard.data.trac.TracTicketRepository;
+import io.andylee.whiteboard.domain.Milestone;
+import io.andylee.whiteboard.webservice.xmlrpc.security.SslInitializer;
+import io.andylee.whiteboard.webservice.xmlrpc.XmlRpcTemplate;
+import org.junit.Assert;
 import org.apache.xmlrpc.client.XmlRpcClient;
 import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
 import org.junit.Before;

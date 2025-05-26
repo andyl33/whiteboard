@@ -1,4 +1,4 @@
-package com.winkball.whiteboard.domain;
+package io.andylee.whiteboard.domain;
 
 /**
  * Indicates that a Ticket does not support the requested state change

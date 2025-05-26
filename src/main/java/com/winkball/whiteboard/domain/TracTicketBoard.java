@@ -1,9 +1,9 @@
-package com.winkball.whiteboard.domain;
+package io.andylee.whiteboard.domain;
 
-import com.winkball.whiteboard.data.TicketRepository;
-import com.winkball.whiteboard.domain.configuration.BoardConfiguration;
-import com.winkball.whiteboard.domain.configuration.ColumnConfiguration;
-import com.winkball.whiteboard.domain.configuration.TicketConfiguration;
+import io.andylee.whiteboard.data.TicketRepository;
+import io.andylee.whiteboard.domain.configuration.BoardConfiguration;
+import io.andylee.whiteboard.domain.configuration.ColumnConfiguration;
+import io.andylee.whiteboard.domain.configuration.TicketConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.*;

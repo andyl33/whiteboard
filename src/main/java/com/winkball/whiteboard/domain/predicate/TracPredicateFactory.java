@@ -1,4 +1,4 @@
-package com.winkball.whiteboard.domain.predicate;
+package io.andylee.whiteboard.domain.predicate;
 
 import org.apache.commons.collections.Predicate;
 import org.apache.commons.collections.PredicateUtils;

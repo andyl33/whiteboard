@@ -1,4 +1,4 @@
-package com.winkball.whiteboard.domain;
+package io.andylee.whiteboard.domain;
 
 /**
  * Indicates a achievement of significance within the overall process.

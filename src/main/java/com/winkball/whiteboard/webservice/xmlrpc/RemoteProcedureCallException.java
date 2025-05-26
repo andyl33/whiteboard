@@ -1,4 +1,4 @@
-package com.winkball.whiteboard.webservice.xmlrpc;
+package io.andylee.whiteboard.webservice.xmlrpc;
 
 /**
  *  Runtime equivalent of the {@link org.apache.xmlrpc.XmlRpcException}

@@ -19,7 +19,7 @@
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>
-                com.winkball.whiteboard
+                io.andylee.whiteboard
             </param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>

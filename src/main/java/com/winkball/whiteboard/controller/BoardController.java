@@ -1,10 +1,10 @@
-package com.winkball.whiteboard.controller;
+package io.andylee.whiteboard.controller;
 
 import java.util.*;
 
-import com.winkball.whiteboard.data.TicketRepository;
-import com.winkball.whiteboard.domain.*;
-import com.winkball.whiteboard.domain.configuration.BoardConfiguration;
+import io.andylee.whiteboard.data.TicketRepository;
+import io.andylee.whiteboard.domain.*;
+import io.andylee.whiteboard.domain.configuration.BoardConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -13,7 +13,7 @@ import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.winkball.whiteboard.data.MilestoneRepository;
+import io.andylee.whiteboard.data.MilestoneRepository;
 
 /**
  * Main Controller for generating the board contents and handling updates.

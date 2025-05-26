@@ -1,6 +1,6 @@
-package com.winkball.whiteboard.webservice.xmlrpc;
+package io.andylee.whiteboard.webservice.xmlrpc;
 
-import com.winkball.whiteboard.webservice.xmlrpc.calls.RemoteProcedureCall;
+import io.andylee.whiteboard.webservice.xmlrpc.calls.RemoteProcedureCall;
 
 import java.util.List;
 

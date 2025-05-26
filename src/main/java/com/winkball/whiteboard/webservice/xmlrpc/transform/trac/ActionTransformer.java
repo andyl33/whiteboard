@@ -1,8 +1,8 @@
-package com.winkball.whiteboard.webservice.xmlrpc.transform.trac;
+package io.andylee.whiteboard.webservice.xmlrpc.transform.trac;
 
-import com.winkball.whiteboard.domain.Action;
-import com.winkball.whiteboard.domain.Ticket;
-import com.winkball.whiteboard.webservice.xmlrpc.transform.ResultTransformer;
+import io.andylee.whiteboard.domain.Action;
+import io.andylee.whiteboard.domain.Ticket;
+import io.andylee.whiteboard.webservice.xmlrpc.transform.ResultTransformer;
 
 /**
  * Transforms ticket actions

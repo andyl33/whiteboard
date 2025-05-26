@@ -1,6 +1,6 @@
-package com.winkball.whiteboard.domain;
+package io.andylee.whiteboard.domain;
 
-import com.winkball.whiteboard.domain.configuration.ColumnConfiguration;
+import io.andylee.whiteboard.domain.configuration.ColumnConfiguration;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.util.ArrayList;

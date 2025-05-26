@@ -1,6 +1,6 @@
-package com.winkball.whiteboard.webservice.xmlrpc.calls;
+package io.andylee.whiteboard.webservice.xmlrpc.calls;
 
-import com.winkball.whiteboard.webservice.xmlrpc.transform.ResultTransformer;
+import io.andylee.whiteboard.webservice.xmlrpc.transform.ResultTransformer;
 
 /**
  * Represents an XML Remote Procedure Call.

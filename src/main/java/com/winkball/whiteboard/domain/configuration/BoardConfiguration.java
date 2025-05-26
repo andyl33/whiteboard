@@ -1,4 +1,4 @@
-package com.winkball.whiteboard.domain.configuration;
+package io.andylee.whiteboard.domain.configuration;
 
 import java.util.List;
 

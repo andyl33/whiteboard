@@ -1,8 +1,8 @@
-package com.winkball.whiteboard.webservice.xmlrpc;
+package io.andylee.whiteboard.webservice.xmlrpc;
 
-import com.winkball.whiteboard.webservice.xmlrpc.calls.RemoteProcedureCall;
-import com.winkball.whiteboard.webservice.xmlrpc.security.SslInitializer;
-import com.winkball.whiteboard.webservice.xmlrpc.transform.ResultTransformer;
+import io.andylee.whiteboard.webservice.xmlrpc.calls.RemoteProcedureCall;
+import io.andylee.whiteboard.webservice.xmlrpc.security.SslInitializer;
+import io.andylee.whiteboard.webservice.xmlrpc.transform.ResultTransformer;
 import org.apache.commons.lang.Validate;
 import org.apache.xmlrpc.XmlRpcException;
 import org.apache.xmlrpc.client.XmlRpcClient;

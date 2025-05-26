@@ -1,4 +1,4 @@
-package com.winkball.whiteboard.webservice.xmlrpc.security;
+package io.andylee.whiteboard.webservice.xmlrpc.security;
 
 import javax.net.ssl.*;
 import java.security.KeyManagementException;

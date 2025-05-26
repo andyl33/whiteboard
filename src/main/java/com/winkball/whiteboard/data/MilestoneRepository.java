@@ -1,6 +1,6 @@
-package com.winkball.whiteboard.data;
+package io.andylee.whiteboard.data;
 
-import com.winkball.whiteboard.domain.Milestone;
+import io.andylee.whiteboard.domain.Milestone;
 
 import java.util.List;
 
